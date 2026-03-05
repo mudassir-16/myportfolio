@@ -36,7 +36,7 @@ export function Learning() {
                     {/* Decorative sphere */}
                     <div className="absolute inset-0 bg-linear-to-tr from-zinc-600/20 to-slate-600/30 rounded-full blur-[100px] w-full h-full" />
 
-                    <div className="relative z-10 p-8 glass rounded-[3rem] border border-[rgba(255,255,255,0.08)] w-full max-w-md aspect-square flex flex-col items-center justify-center text-center space-y-6">
+                    <div className="relative z-10 p-6 sm:p-8 glass rounded-3xl sm:rounded-[3rem] border border-[rgba(255,255,255,0.08)] w-full max-w-md aspect-square flex flex-col items-center justify-center text-center space-y-6">
                         <div className="p-4 bg-[var(--color-section-bg)] rounded-full">
                             <BookOpen size={48} className="text-secondary" />
                         </div>

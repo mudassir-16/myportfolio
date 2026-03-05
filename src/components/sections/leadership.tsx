@@ -52,7 +52,7 @@ export function Leadership() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-100px" }}
                                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                                className="glass rounded-3xl p-8 hover:border-[var(--color-secondary)] transition-all group relative overflow-hidden"
+                                className="glass rounded-3xl p-6 sm:p-8 hover:border-[var(--color-secondary)] transition-all group relative overflow-hidden"
                             >
                                 <div className="flex items-start gap-6 relative z-10">
                                     <div className="w-16 h-16 bg-[var(--color-section-bg)] rounded-2xl flex items-center justify-center text-[var(--color-secondary)] group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(139,92,246,0.3)] transition-all shrink-0">

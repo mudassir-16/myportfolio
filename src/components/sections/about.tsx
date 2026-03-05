@@ -37,7 +37,7 @@ export function About() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-6 pt-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
                         <div className="glass p-6 rounded-3xl border border-[rgba(255,255,255,0.08)] hover:border-[var(--color-secondary)] transition-colors">
                             <h4 className="text-[var(--color-headings)] font-bold text-lg mb-2">Hackathons</h4>
                             <p className="text-sm text-[var(--color-headings)] opacity-80">I regularly compete to challenge my skills and build MVPs under pressure.</p>

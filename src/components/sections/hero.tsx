@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export function Hero() {
     return (
-        <section className="min-h-screen flex flex-col justify-center relative overflow-hidden px-6 lg:px-20 pt-20">
+        <section className="min-h-screen flex flex-col justify-center relative overflow-hidden px-6 lg:px-20 pt-32 sm:pt-40">
 
             {/* Background reserved for ScrollBackground */}
 

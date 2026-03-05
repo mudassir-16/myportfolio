@@ -60,7 +60,7 @@ export function Projects() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.6, delay: idx * 0.1 }}
-                            className="glass rounded-3xl p-8 hover:border-[var(--color-secondary)] transition-all group flex flex-col h-full overflow-hidden relative"
+                            className="glass rounded-3xl p-6 sm:p-8 hover:border-[var(--color-secondary)] transition-all group flex flex-col h-full overflow-hidden relative"
                         >
                             {/* Background gradient blur */}
                             <div className={`absolute top-0 right-0 w-64 h-64 bg-linear-to-br ${project.color} rounded-full blur-[100px] opacity-20 group-hover:opacity-40 transition-opacity -z-10`} />

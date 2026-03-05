@@ -24,7 +24,7 @@ export function Contact() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="glass p-12 rounded-[3.5rem] border border-white/5 relative shadow-2xl space-y-8"
+                    className="glass p-6 sm:p-12 rounded-3xl sm:rounded-[3.5rem] border border-white/5 relative shadow-2xl space-y-8"
                 >
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <a href="mailto:mohammadmudassir1604@gmail.com" className="group p-6 glass rounded-3xl border border-[rgba(255,255,255,0.08)] flex flex-col items-center gap-4 hover:bg-[var(--color-section-bg)] transition-all text-[var(--color-foreground)] hover:text-[var(--color-primary)]">

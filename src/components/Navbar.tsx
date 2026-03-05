@@ -31,7 +31,7 @@ export function Navbar() {
     const toggleMenu = () => setIsOpen(!isOpen);
 
     return (
-        <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${scrolled || isOpen ? 'py-4' : 'py-6'}`}>
+        <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${scrolled || isOpen ? 'py-4 bg-black/50 backdrop-blur-xl border-b border-white/5' : 'py-6'}`}>
             <div className="max-w-7xl mx-auto px-6 flex justify-between items-center transition-all duration-300 relative z-[101]">
                 {/* Logo */}
                 <Link href="#" className="text-2xl font-black tracking-tighter text-white group flex items-center gap-2">

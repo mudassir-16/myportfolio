@@ -28,7 +28,7 @@ export default function Home() {
         className="fixed top-0 left-0 right-0 h-1 bg-linear-to-r from-zinc-500 via-slate-500 to-zinc-400 transform origin-left z-50 shadow-none"
         style={{ scaleX }}
       />
-      <div className="flex flex-col gap-24 md:gap-32 w-full overflow-hidden pb-24 top-16 relative">
+      <div className="flex flex-col gap-24 md:gap-32 w-full overflow-hidden pb-24">
         <Hero />
         <About />
         <Skills />
