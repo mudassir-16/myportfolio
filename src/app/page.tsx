@@ -9,6 +9,7 @@ import { Experience } from '@/components/sections/experience';
 import { Learning } from '@/components/sections/learning';
 import { Leadership } from '@/components/sections/leadership';
 import { Contact } from '@/components/sections/contact';
+import { Footer } from '@/components/Footer';
 import { ScrollBackground } from '@/components/ScrollBackground';
 import { motion, useScroll, useSpring } from 'framer-motion';
 
@@ -37,7 +38,6 @@ export default function Home() {
         <Leadership />
         <Learning />
         <Contact />
-      </div>
-    </main>
+      </div>      <Footer />    </main>
   );
 }
