@@ -1,5 +1,6 @@
 "use client";
 
+import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/sections/hero';
 import { About } from '@/components/sections/about';
 import { Skills } from '@/components/sections/skills';
@@ -21,12 +22,13 @@ export default function Home() {
 
   return (
     <main className="min-h-screen selection:bg-zinc-600">
+      <Navbar />
       <ScrollBackground />
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-linear-to-r from-zinc-500 via-slate-500 to-zinc-400 transform origin-left z-50 shadow-none"
         style={{ scaleX }}
       />
-      <div className="flex flex-col gap-24 md:gap-32 w-full overflow-hidden pb-24">
+      <div className="flex flex-col gap-24 md:gap-32 w-full overflow-hidden pb-24 top-16 relative">
         <Hero />
         <About />
         <Skills />
