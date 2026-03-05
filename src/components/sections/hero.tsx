@@ -53,7 +53,7 @@ export function Hero() {
                         </button>
                     </Link>
 
-                    <a href="/myportfolio/resume.pdf" download>
+                    <a href={`${process.env.NODE_ENV === 'production' && !process.env.VERCEL ? '/myportfolio' : ''}/resume.pdf`} download>
                         <button className="flex items-center gap-2 glass hover:bg-[var(--color-section-bg)] text-[var(--color-headings)] px-6 py-3 rounded-xl transition-all font-medium active:scale-95 group">
                             Resume <Download size={18} className="group-hover:-translate-y-1 transition-transform" />
                         </button>
