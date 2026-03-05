@@ -1,75 +1,116 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { Mail, Github, Linkedin, MessageSquare, Instagram } from 'lucide-react';
+import { Mail, Github, Linkedin, Instagram, ArrowUpRight, Send } from 'lucide-react';
+
+const contactLinks = [
+    {
+        name: "Email",
+        value: "mohammadmudassir1604@gmail.com",
+        href: "mailto:mohammadmudassir1604@gmail.com",
+        icon: <Mail size={24} />,
+        color: "text-blue-400",
+        bg: "bg-blue-500/10"
+    },
+    {
+        name: "LinkedIn",
+        value: "Mohammed Mudassir",
+        href: "https://www.linkedin.com/in/mohammed-mudassir-82882933a/",
+        icon: <Linkedin size={24} />,
+        color: "text-blue-600",
+        bg: "bg-blue-600/10"
+    },
+    {
+        name: "GitHub",
+        value: "mudassir-16",
+        href: "https://github.com/mudassir-16",
+        icon: <Github size={24} />,
+        color: "text-white",
+        bg: "bg-white/10"
+    },
+    {
+        name: "Instagram",
+        value: "@mudassir.1604",
+        href: "https://www.instagram.com/mudassir.1604?igsh=bWFkOTFvYWFxeGpv",
+        icon: <Instagram size={24} />,
+        color: "text-pink-500",
+        bg: "bg-pink-500/10"
+    }
+];
 
 export function Contact() {
     return (
-        <section id="contact" className="py-24 px-6 md:px-20 relative max-w-7xl mx-auto overflow-hidden text-center">
-            <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-                <div className="w-[800px] h-[800px] bg-indigo-900/10 rounded-full blur-[200px]" />
-            </div>
-
-            <div className="space-y-16 relative z-10 max-w-3xl mx-auto">
-                <div className="space-y-4">
-                    <h2 className="text-sm tracking-widest text-[var(--color-primary)] font-mono uppercase font-bold">Get In Touch</h2>
-                    <h3 className="text-4xl md:text-6xl font-extrabold text-[var(--color-headings)]">Let's Build Something Great</h3>
-                    <p className="text-[var(--color-headings)]/80 text-lg md:text-xl mt-4 leading-relaxed font-light mx-auto max-w-xl">
-                        Whether you have a question about my work, want to collaborate on a project, or just want to say hi, my inbox is always open.
-                    </p>
-                </div>
-
+        <section id="contact" className="py-24 relative overflow-hidden">
+            <div className="section-container">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="glass p-6 sm:p-12 rounded-3xl sm:rounded-[3.5rem] border border-white/5 relative shadow-2xl space-y-8"
+                    className="text-center mb-16"
                 >
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <a href="mailto:mohammadmudassir1604@gmail.com" className="group p-6 glass rounded-3xl border border-[rgba(255,255,255,0.08)] flex flex-col items-center gap-4 hover:bg-[var(--color-section-bg)] transition-all text-[var(--color-foreground)] hover:text-[var(--color-primary)]">
-                            <div className="p-4 bg-[var(--color-section-bg)] rounded-2xl group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(250,204,21,0.3)] transition-all">
-                                <Mail size={32} className="text-[var(--color-secondary)] group-hover:text-[var(--color-primary)] transition-colors" />
-                            </div>
-                            <div className="text-center">
-                                <h5 className="font-bold text-lg text-[var(--color-headings)]">Email</h5>
-                                <p className="text-sm text-[var(--color-headings)]/70 mt-1">mohammadmudassir1604@gmail.com</p>
-                            </div>
-                        </a>
+                    <h2 className="section-title text-gradient">Get In Touch</h2>
+                    <p className="text-white/60 max-w-2xl mx-auto text-lg">
+                        Let's collaborate on your next big idea or just have a chat about technology.
+                    </p>
+                </motion.div>
 
-                        <a href="https://www.linkedin.com/in/mohammed-mudassir-82882933a/" target="_blank" className="group p-6 glass rounded-3xl border border-[rgba(255,255,255,0.08)] flex flex-col items-center gap-4 hover:bg-[var(--color-section-bg)] transition-all text-[var(--color-foreground)] hover:text-[#0A66C2]">
-                            <div className="p-4 bg-[var(--color-section-bg)] rounded-2xl group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(10,102,194,0.3)] transition-all">
-                                <Linkedin size={32} className="text-blue-400 group-hover:text-[#0A66C2] transition-colors" />
-                            </div>
-                            <div className="text-center">
-                                <h5 className="font-bold text-lg text-[var(--color-headings)]">LinkedIn</h5>
-                                <p className="text-sm text-[var(--color-headings)]/70 mt-1">Let's connect</p>
-                            </div>
-                        </a>
-
-                        <a href="https://github.com/mudassir-16" target="_blank" className="group p-6 glass rounded-3xl border border-[rgba(255,255,255,0.08)] flex flex-col items-center gap-4 hover:bg-[var(--color-section-bg)] transition-all text-[var(--color-foreground)] hover:text-white">
-                            <div className="p-4 bg-[var(--color-section-bg)] rounded-2xl group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.2)] transition-all">
-                                <Github size={32} className="text-zinc-400 group-hover:text-white transition-colors" />
-                            </div>
-                            <div className="text-center">
-                                <h5 className="font-bold text-lg text-[var(--color-headings)]">GitHub</h5>
-                                <p className="text-sm text-[var(--color-headings)]/70 mt-1">Check my code</p>
-                            </div>
-                        </a>
-
-                        <a href="https://www.instagram.com/mudassir.1604?igsh=bWFkOTFvYWFxeGpv" target="_blank" className="group p-6 glass rounded-3xl border border-[rgba(255,255,255,0.08)] flex flex-col items-center gap-4 hover:bg-[var(--color-section-bg)] transition-all text-[var(--color-foreground)] hover:text-[#E4405F]">
-                            <div className="p-4 bg-[var(--color-section-bg)] rounded-2xl group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(228,64,95,0.3)] transition-all">
-                                <Instagram size={32} className="text-pink-400 group-hover:text-[#E4405F] transition-colors" />
-                            </div>
-                            <div className="text-center">
-                                <h5 className="font-bold text-lg text-[var(--color-headings)]">Instagram</h5>
-                                <p className="text-sm text-[var(--color-headings)]/70 mt-1">Follow me</p>
-                            </div>
-                        </a>
+                <div className="grid lg:grid-cols-5 gap-8 items-start">
+                    <div className="lg:col-span-2 space-y-6">
+                        {contactLinks.map((link, idx) => (
+                            <motion.a
+                                key={idx}
+                                href={link.href}
+                                target="_blank"
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                                className="glass-card p-6 flex items-center justify-between group bg-white/[0.03] border-white/5 hover:bg-white/[0.06] transition-all"
+                            >
+                                <div className="flex items-center gap-4">
+                                    <div className={`w-12 h-12 rounded-xl ${link.bg} ${link.color} flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                                        {link.icon}
+                                    </div>
+                                    <div>
+                                        <h4 className="text-sm font-bold text-white/40 uppercase tracking-widest">{link.name}</h4>
+                                        <p className="text-white font-semibold truncate max-w-[180px] sm:max-w-none">{link.value}</p>
+                                    </div>
+                                </div>
+                                <ArrowUpRight size={20} className="text-white/20 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                            </motion.a>
+                        ))}
                     </div>
 
-
-                </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="lg:col-span-3 glass-card p-8 sm:p-12 border-none bg-white/[0.03]"
+                    >
+                        <form className="space-y-6">
+                            <div className="grid sm:grid-cols-2 gap-6">
+                                <div className="space-y-2">
+                                    <label className="text-xs font-bold text-white/40 uppercase tracking-widest ml-1">Your Name</label>
+                                    <input type="text" placeholder="John Doe" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-white focus:outline-none focus:border-blue-500/50 transition-colors" />
+                                </div>
+                                <div className="space-y-2">
+                                    <label className="text-xs font-bold text-white/40 uppercase tracking-widest ml-1">Your Email</label>
+                                    <input type="email" placeholder="john@example.com" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-white focus:outline-none focus:border-blue-500/50 transition-colors" />
+                                </div>
+                            </div>
+                            <div className="space-y-2">
+                                <label className="text-xs font-bold text-white/40 uppercase tracking-widest ml-1">Message</label>
+                                <textarea rows={4} placeholder="How can I help you?" className="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-white focus:outline-none focus:border-blue-500/50 transition-colors resize-none"></textarea>
+                            </div>
+                            <button type="submit" className="w-full btn-primary flex items-center justify-center gap-3 py-4 group">
+                                Send Message
+                                <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                            </button>
+                        </form>
+                    </motion.div>
+                </div>
             </div>
         </section>
     );

@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Code2, Sparkles } from 'lucide-react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const projects = [
     {
@@ -12,15 +11,17 @@ const projects = [
         tech: ["Next.js", "Groq AI", "Supabase", "TailwindCSS"],
         github: "https://github.com/mudassir-16/aiseds",
         live: "https://aiseds.vercel.app",
-        color: "from-red-600 to-rose-600"
+        image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800",
+        accent: "from-blue-500/20 to-indigo-500/20"
     },
     {
         title: "OpenIdeaX Innovation Platform",
         description: "An AI-powered co-creation engine for global challenges. Built during a major hackathon, it features multi-agent AI collaboration, real-time rooms, and impact evaluation metrics.",
-        tech: ["Next.js 14", "TypeScript", "OpenAI GPT-4", "Recharts"],
+        tech: ["Next.js 14", "TypeScript", "GPT-4", "Recharts"],
         github: "https://github.com/mudassir-16/GROUP-P-hackathon-oct-2025",
         live: "#",
-        color: "from-purple-600 to-violet-600"
+        image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
+        accent: "from-purple-500/20 to-violet-500/20"
     },
     {
         title: "StudyMate AI",
@@ -28,67 +29,87 @@ const projects = [
         tech: ["Python", "Streamlit", "LangChain", "OpenAI"],
         github: "https://github.com/mudassir-16/StudyMateAi-The-Devion-",
         live: "#",
-        color: "from-blue-600 to-indigo-600"
-    },
-    {
-        title: "Smart Workflow Automator",
-        description: "A drag-and-drop automation tool that orchestrates complex AI pipelines and multi-step tasks across multiple platforms and APIs.",
-        tech: ["React", "Node.js", "Express", "PostgreSQL"],
-        github: "https://github.com/mudassir-16",
-        live: "#",
-        color: "from-emerald-600 to-teal-600"
+        image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=800",
+        accent: "from-emerald-500/20 to-teal-500/20"
     }
 ];
 
 export function Projects() {
     return (
-        <section id="projects" className="py-24 px-6 md:px-20 relative max-w-7xl mx-auto">
-            <div className="space-y-16">
-                <div className="space-y-4">
-                    <h2 className="text-sm tracking-widest text-[var(--color-primary)] font-mono uppercase font-bold">Showcase</h2>
-                    <h3 className="text-4xl md:text-5xl font-extrabold text-[var(--color-headings)]">Featured Projects</h3>
-                    <p className="text-[var(--color-headings)]/90 max-w-2xl text-lg mt-4 leading-relaxed font-light">
-                        A selection of my best work, ranging from AI applications to full-stack automation tools.
+        <section id="projects" className="py-24 relative overflow-hidden">
+            <div className="section-container">
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center mb-16"
+                >
+                    <h2 className="section-title text-gradient">Featured Work</h2>
+                    <p className="text-white/60 max-w-2xl mx-auto text-lg leading-relaxed">
+                        A collection of projects where AI meets practical utility, focused on solving complex problems with elegant code.
                     </p>
-                </div>
+                </motion.div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     {projects.map((project, idx) => (
                         <motion.div
                             key={idx}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.6, delay: idx * 0.1 }}
-                            className="glass rounded-3xl p-6 sm:p-8 hover:border-[var(--color-secondary)] transition-all group flex flex-col h-full overflow-hidden relative"
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: idx * 0.1 }}
+                            className="glass-card group flex flex-col h-full overflow-hidden border-none bg-white/[0.03]"
                         >
-                            {/* Background gradient blur */}
-                            <div className={`absolute top-0 right-0 w-64 h-64 bg-linear-to-br ${project.color} rounded-full blur-[100px] opacity-20 group-hover:opacity-40 transition-opacity -z-10`} />
+                            <div className="h-48 sm:h-64 relative overflow-hidden">
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                />
+                                <div className={`absolute inset-0 bg-gradient-to-br ${project.accent} mix-blend-overlay`} />
+                                <div className="absolute top-4 right-4 backdrop-blur-md bg-black/40 p-2 rounded-xl border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <Sparkles size={18} className="text-white" />
+                                </div>
+                            </div>
 
-                            <div className="flex-1 space-y-6 z-10">
-                                <h4 className="text-2xl font-bold text-[var(--color-headings)] tracking-tight">{project.title}</h4>
-                                <p className="text-[var(--color-headings)]/80 leading-relaxed font-light">
+                            <div className="p-8 flex-1 flex flex-col">
+                                <h4 className="text-2xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
+                                    {project.title}
+                                </h4>
+                                <p className="text-white/60 mb-6 leading-relaxed flex-1">
                                     {project.description}
                                 </p>
 
-                                <div className="flex flex-wrap gap-2 pt-2">
+                                <div className="flex flex-wrap gap-2 mb-8">
                                     {project.tech.map((tech, tIdx) => (
-                                        <span key={tIdx} className="px-3 py-1 bg-[var(--color-section-bg)] text-[var(--color-headings)] text-sm rounded-full font-mono border border-[rgba(255,255,255,0.08)] group-hover:border-[var(--color-secondary)] transition-colors">
+                                        <span
+                                            key={tIdx}
+                                            className="px-3 py-1 bg-white/5 border border-white/10 text-white/50 text-xs font-mono rounded-lg"
+                                        >
                                             {tech}
                                         </span>
                                     ))}
                                 </div>
-                            </div>
 
-                            <div className="flex items-center gap-4 mt-8 pt-8 border-t border-[rgba(255,255,255,0.08)] z-10 w-full">
-                                <Link href={project.github} target="_blank" className="flex items-center gap-2 text-[var(--color-headings)]/70 hover:text-[var(--color-primary)] transition-colors">
-                                    <Github size={20} />
-                                    <span className="font-medium text-sm">Source Code</span>
-                                </Link>
-                                <Link href={project.live} target="_blank" className="flex items-center gap-2 text-[var(--color-headings)]/70 hover:text-[var(--color-primary)] transition-colors ml-auto">
-                                    <span className="font-medium text-sm">Live Demo</span>
-                                    <ExternalLink size={20} />
-                                </Link>
+                                <div className="flex items-center gap-4 pt-6 border-t border-white/5">
+                                    <Link
+                                        href={project.github}
+                                        target="_blank"
+                                        className="flex items-center gap-2 text-white/70 hover:text-white transition-colors py-2"
+                                    >
+                                        <Github size={18} />
+                                        <span className="font-semibold text-sm">Source</span>
+                                    </Link>
+                                    <Link
+                                        href={project.live}
+                                        target="_blank"
+                                        className="flex items-center gap-2 text-white/70 hover:text-white transition-colors py-2 ml-auto"
+                                    >
+                                        <span className="font-semibold text-sm">Live Demo</span>
+                                        <ExternalLink size={18} />
+                                    </Link>
+                                </div>
                             </div>
                         </motion.div>
                     ))}

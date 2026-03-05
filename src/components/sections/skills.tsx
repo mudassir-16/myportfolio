@@ -1,92 +1,84 @@
 "use client";
 
-import { motion, Variants } from 'framer-motion';
-import { Database, Code2, BrainCircuit, Wrench } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Database, Code2, BrainCircuit, Wrench, Terminal, Cpu, Globe, Layout } from 'lucide-react';
 
 const categories = [
     {
-        title: "Programming",
-        icon: Code2,
-        skills: ["Python", "JavaScript", "TypeScript", "HTML/CSS"]
+        title: "Frontend Development",
+        icon: Layout,
+        skills: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+        color: "text-blue-400"
     },
     {
-        title: "AI / Data",
+        title: "AI & Automation",
         icon: BrainCircuit,
-        skills: ["Machine Learning", "Generative AI", "Data Analysis", "Prompt Engineering"]
+        skills: ["LLM Integration", "RAG Systems", "Prompt Engineering", "Python", "LangChain"],
+        color: "text-purple-400"
     },
     {
-        title: "Backend / Databases",
-        icon: Database,
-        skills: ["Supabase", "MySQL", "PostgreSQL", "REST APIs", "Node.js"]
+        title: "Backend & Systems",
+        icon: Terminal,
+        skills: ["Node.js", "PostgreSQL", "Supabase", "RESTful APIs", "Docker"],
+        color: "text-emerald-400"
     },
     {
-        title: "Tools & DevOps",
+        title: "Tools & Workflow",
         icon: Wrench,
-        skills: ["Git", "GitHub", "Vercel", "Docker (Learning)"]
+        skills: ["Git / GitHub", "Vercel", "Linux", "Postman", "Claude/GPT APIs"],
+        color: "text-amber-400"
     }
 ];
 
-const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: { staggerChildren: 0.1 }
-    }
-};
-
-const itemVariants: Variants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-        y: 0,
-        opacity: 1,
-        transition: { type: "spring", stiffness: 100 }
-    }
-};
-
 export function Skills() {
     return (
-        <section id="skills" className="py-24 px-6 md:px-20 relative max-w-7xl mx-auto">
-            <div className="absolute right-0 top-1/2 w-[600px] h-[600px] bg-zinc-900/10 rounded-full blur-[150px] pointer-events-none" />
-
-            <div className="flex flex-col gap-12">
-                <div className="space-y-2 text-center lg:text-left">
-                    <h2 className="text-sm tracking-widest text-[var(--color-primary)] font-mono uppercase font-bold">Tech Stack</h2>
-                    <h3 className="text-4xl md:text-5xl font-extrabold text-[var(--color-headings)]">Skills & Arsenal</h3>
-                </div>
-
+        <section id="skills" className="py-24 relative overflow-hidden">
+            <div className="section-container">
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-50px" }}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center mb-16"
                 >
+                    <h2 className="section-title text-gradient">Technical Arsenal</h2>
+                    <p className="text-white/60 max-w-2xl mx-auto text-lg">
+                        A curated selection of technologies I use to bring complex ideas to life.
+                    </p>
+                </motion.div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {categories.map((category, idx) => {
                         const Icon = category.icon;
                         return (
                             <motion.div
                                 key={idx}
-                                variants={itemVariants}
-                                className="glass rounded-3xl p-6 hover:border-[var(--color-secondary)] transition-all group"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                                className="glass-card p-8 group h-full"
                             >
-                                <div className="w-12 h-12 bg-[var(--color-section-bg)] rounded-2xl flex items-center justify-center mb-6 text-[var(--color-secondary)] group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(139,92,246,0.3)] transition-all">
-                                    <Icon size={24} />
+                                <div className={`w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 ${category.color} group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-black/20`}>
+                                    <Icon size={28} />
                                 </div>
 
-                                <h4 className="text-xl font-bold text-[var(--color-headings)] mb-4">{category.title}</h4>
+                                <h4 className="text-xl font-bold text-white mb-6 tracking-tight">{category.title}</h4>
 
-                                <ul className="space-y-3">
+                                <div className="flex flex-wrap gap-2">
                                     {category.skills.map((skill, sIdx) => (
-                                        <li key={sIdx} className="flex items-center gap-3 text-[var(--color-headings)] font-medium">
-                                            <span className="w-1.5 h-1.5 bg-gradient-accent rounded-full inline-block" />
+                                        <span
+                                            key={sIdx}
+                                            className="px-3 py-1 text-xs font-semibold rounded-full bg-white/5 border border-white/10 text-white/70 group-hover:text-white group-hover:border-white/20 transition-colors"
+                                        >
                                             {skill}
-                                        </li>
+                                        </span>
                                     ))}
-                                </ul>
+                                </div>
                             </motion.div>
                         );
                     })}
-                </motion.div>
+                </div>
             </div>
         </section>
     );
